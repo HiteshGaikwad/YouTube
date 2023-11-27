@@ -8,7 +8,7 @@ export const YOUTUBE_VIDEO_API= `https://youtube.googleapis.com/youtube/v3/video
 
 export const YOUTUBE_CHANNEL_LOGO_URL= `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&key=${API_ACCESS_KEY}&id=`;
 
-export const YOUTUBE_SEARCH_SUGGESTION_API= `http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=`;
+export const YOUTUBE_SEARCH_SUGGESTION_API= `https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=`;
 
 export const YOUTUBE_VIDEOS_SEARCH_API= `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&key=${API_ACCESS_KEY}&q=`;
 

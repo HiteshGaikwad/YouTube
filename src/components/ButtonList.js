@@ -50,8 +50,8 @@ function ButtonList() {
 
 
   return (
-    <div className='grid grid-flow-col gap-3 bg-slate-200 rounded-lg items-center sm:mx-3 my-5 absolute -top-6 pt-1'>
-      <button className='hover:bg-gray-700 sm:h-fit sm:w-fit text-md  sm:text-2xl font-bold sm:mx-2 mx-1 sm:px-3 px-2 sm:py-1 max-sm:pb-1  rounded-full bg-gray-500 text-white cursor-pointer'  onClick={scrollLeft}> &lt; </button>
+    <div className='grid grid-flow-col gap-3 bg-slate-200 rounded-lg items-center sm:mx-3 sm:my-5 fixed max-sm:top-16 max-sm:mt-2 sm:absolute sm:-top-6 sm:pt-2'>
+      <button className='hover:bg-gray-700 sm:h-fit sm:w-fit text-xl  sm:text-2xl font-bold mx-2 px-3 py-1 max-sm:pb-2  rounded-full bg-gray-500 text-white cursor-pointer'  onClick={scrollLeft}> &lt; </button>
 
       <div className='flex w-[100%] px-2 overflow-x-hidden py-2 rounded-xl' ref={scrollContainerRef}>
         {BUTTONS.map((button) => (
@@ -59,7 +59,7 @@ function ButtonList() {
         ))}
       </div>
 
-      <button className='hover:bg-gray-700 sm:h-fit sm:w-fit text-md  sm:text-2xl font-bold sm:mx-2 mx-1 sm:px-3 px-2 sm:py-1 max-sm:pb-1  rounded-full bg-gray-500 text-white cursor-pointer'  onClick={scrollRight}> &gt; </button>
+      <button className='hover:bg-gray-700 sm:h-fit sm:w-fit text-xl  sm:text-2xl font-bold mx-2 px-3 py-1 max-sm:pb-2  rounded-full bg-gray-500 text-white cursor-pointer'  onClick={scrollRight}> &gt; </button>
     </div>
   )
 }

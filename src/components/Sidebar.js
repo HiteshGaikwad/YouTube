@@ -57,7 +57,7 @@ const handleCategory= async(querry)=>{
   return (
     <>{
       (!isOpen)?null:
-      <div className='z-50 bg-white pl-2 mb-1 h-[90vh] col-span-1 max-sm:hidden  w-60 overflow-y-auto'>
+      <div className='z-50 bg-white pl-2 mb-1 h-[90vh] col-span-1 max-sm:hidden  w-60 sm:overflow-y-auto'>
       <ul className=' border-b border-b-slate-700 py-1'>
 
       <Link to="/" onClick={()=>handleHomeOpen()}>
@@ -110,7 +110,7 @@ const handleCategory= async(querry)=>{
    
 
     {/* navbar for small devices */}
-    <div className='hidden max-sm:flex z-10 flxed rounded-t-xl bg-slate-400 px-3'>
+    <div className='hidden max-sm:flex z-50 fixed bottom-0 right-0 w-full rounded-t-xl bg-slate-400 px-3'>
     <ul className='flex items-center justify-between w-full'>
     <Link to="/" onClick={()=>handleHomeOpen()}>
          <li className={'flex flex-col items-center px-1 font-bold text-xs my-1 ' }>
