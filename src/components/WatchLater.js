@@ -19,9 +19,9 @@ const WatchLater=()=>{
     // early return if watch list is empty
     if(videosList.length===0){
         return (
-            <div className="mx-2 my-4 flex flex-col justify-center items-center w-[90vw] absolute left-36 gap-5  h-[89vh]">
-                <h1 className="text-3xl font-bold">There are no videos in yout watch list...</h1>
-                <Link to={"/"}><button className="text-2xl px-4 py-2 rounded-full bg-slate-300 hover:bg-slate-400 font bold shadow-md shadow-gray-600">Add videos</button></Link>
+            <div className="mx-2 my-4 flex flex-col justify-center items-center w-[90vw] sm:absolute sm:left-36 gap-5  h-[89vh]">
+                <h1 className="sm:text-3xl font-bold">There are no videos in yout watch list...</h1>
+                <Link to={"/"}><button className="sm:text-2xl px-4 py-2 rounded-full bg-slate-300 hover:bg-slate-400 font bold shadow-md shadow-gray-600">Add videos</button></Link>
             </div>
         )
     }
