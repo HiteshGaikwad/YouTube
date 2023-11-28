@@ -1,14 +1,41 @@
 
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { addVideos } from '../utils/watchLaterSlice';
+import { Link } from 'react-router-dom';
+import { addInfo } from '../utils/watchPageSlice';
 
 const SuggestionVideoCard = ({video}) => {
+
+  const [isOptionsOpen, setIsOptionsOpen]= useState(false);
+
+  const dispatch= useDispatch();
+
   return (
-    <div className='flex max-sm:pb-1 max-sm:my-2 gap-1 max-sm:flex-col  shadow-lg shadow-gray-300 rounded-xl'>
-            <img className='sm:w-48 w-full h-48 sm:h-28 rounded-xl' alt='thumbnail' src={video?.snippet?.thumbnails?.medium?.url}/>
-        <div className='flex flex-col gap-2 m-1'>
+    <div className='flex max-sm:pb-1 max-sm:my-2 gap-1 max-sm:flex-col shadow-lg shadow-gray-300 rounded-xl'>
+      <Link className="hover:bg-gradient-to-r from-slate-300 sm:w-10/12" key={video?.etag} onClick={()=>dispatch(addInfo(video))} to={"?v="+video?.id?.videoId}>
+      <div className='max-sm:flex-col w-full flex'>
+            <img className='sm:w-48 w-full h-48 sm:h-28 rounded-xl' alt='thumbnail' src={video?.snippet?.thumbnails?.high?.url}/>
+            
+             <div className='flex flex-col gap-2 m-1'>
             <h1 className='text-md font-bold overflow-hidden w-full line-clamp-2'>{video?.snippet?.title===undefined?"Video title":video?.snippet?.title}</h1>
             <h2 className='text-sm font-semibold flex items-center gap-1'>{video?.snippet?.channelTitle===undefined?"Channel name":video?.snippet?.channelTitle} <img className='w-4 h-4' src='https://cdn-icons-png.flaticon.com/512/60/60778.png' alt='verified icon'/></h2>
         </div>
+        </div>
+      </Link> 
+        {/* options container */}
+        <div onClick={()=> {setIsOptionsOpen(!isOptionsOpen)}}  className='relative'>
+        <button className='max-sm:absolute max-sm:-top-[85px] max-sm:right-3 hover:bg-slate-300 shadow-sm shadow-gray-600 rounded-xl h-9 px-1 w-fit'><img className='w-5 h-5  mt-2' alt='options icon' src='https://static.thenounproject.com/png/1409295-200.png'/></button>
+
+           {isOptionsOpen && <div className='absolute -top-10 sm:top-11 z-50 right-2 sm:right-0 sm:w-60 w-44 h-28 sm:h-40 p-2 bg-slate-300 shadow-md  shadow-gray-500 rounded-xl'> <span className='absolute -top-2 right-2 w-5 h-5 bg-slate-300 rotate-45 '></span>
+              <ul className='sm:text-lg text-sm font-bold flex flex-col gap-1'>
+                <li onClick={()=>dispatch(addVideos(video))} className='w-fit flex gap-2 hover:bg-slate-400 rounded-full sm:px-2 py-1'>
+                    <img className='sm:w-6 w-4' alt='watch later icon' src='https://static.thenounproject.com/png/4970870-200.png'/>
+                    Save to watch later</li>
+              </ul>
+            </div>}
+            </div>
+        
     </div>
   )
 }

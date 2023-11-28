@@ -1,4 +1,4 @@
-const API_ACCESS_KEY="AIzaSyC8d0puAzwf_CBoYSF6KFq0_M8MSHa0XS8";
+const API_ACCESS_KEY="AIzaSyCtrC8zj10Qm5hIAxo5boFEuaVHWlpq4xo";
 
 // const CORS_PROXY_URL="https://corsproxy.io/?";
 

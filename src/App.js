@@ -9,6 +9,7 @@ import WatchPage from './components/WatchPage';
 import Error from "./components/Error"
 import { lazy, Suspense } from 'react';
 import ShimmerEffect from './components/ShimmerEffect';
+import WatchLater from './components/WatchLater';
 
 
 const Live= lazy(()=>import('./components/Live'));
@@ -27,6 +28,10 @@ const approuter= createBrowserRouter([{
   {
     path:"live",
     element:<Suspense fallback={<ShimmerEffect/>}><Live/></Suspense>
+  },
+  {
+    path:"watchLater",
+    element:<WatchLater/>
   }]
 }])
 

@@ -19,6 +19,7 @@ function Sidebar() {
 const isOpen= useSelector((store)=> store.sidebar.isSidebarOpen);
 const searchedVideos= useSelector((store)=>store.searchedVideos);
 const homeOpen= useSelector((store)=>store.home.isOpen);
+const watchLaterCount= useSelector((store)=>store.watchLater.list);
 // console.log(searchQuerry)
 
 
@@ -79,7 +80,11 @@ const handleCategory= async(querry)=>{
 
         <li className='flex items-center hover:bg-gray-400 h-10 rounded-xl px-5 py-2 font-semibold text-lg gap-5 my-3'><img className='mix-blend-darken h-8 ' alt='subscription icon' src={YOURVIDEOS_ICON_URL}/>Your videos</li>
 
-        <li className='flex items-center hover:bg-gray-400 h-10 rounded-xl px-5 py-2 font-semibold text-lg gap-5 my-3'><img className='h-8 ' alt='subscription icon' src={WATCHLATER_ICON_URL}/>Watch later</li>
+
+      <Link to={'watchLater'}>
+        <li className='flex items-center relative hover:bg-gray-400 h-10 rounded-xl px-5 py-2 font-semibold text-lg gap-5 my-3'><img className='h-8 ' alt='subscription icon' src={WATCHLATER_ICON_URL}/>Watch later <span className='absolute -top-2 left-11 px-2 py-1 w-fit h-fit text-sm text-white bg-red-500 rounded-full'>{watchLaterCount.length}</span></li>
+      </Link>
+
       </ul>
       <ul className=' border-b border-b-slate-700 py-5 '>Explore 
 
@@ -110,7 +115,7 @@ const handleCategory= async(querry)=>{
    
 
     {/* navbar for small devices */}
-    <div className='hidden max-sm:flex z-50 fixed bottom-0 right-0 w-full rounded-t-xl bg-slate-400 px-3'>
+    <div className='hidden max-sm:block z-50 fixed bottom-0 right-0 w-full rounded-t-xl bg-slate-400 px-3'>
     <ul className='flex items-center justify-between w-full'>
     <Link to="/" onClick={()=>handleHomeOpen()}>
          <li className={'flex flex-col items-center px-1 font-bold text-xs my-1 ' }>
@@ -125,9 +130,11 @@ const handleCategory= async(querry)=>{
         <li className={'flex flex-col items-center px-1 font-bold text-xs my-1 '}>
         <img className={'h-8 hover:bg-gray-400 p-1 rounded-full '+ (selectedCategory==='trending' && "bg-gray-400")} alt='home icon' src={TRENDING_ICON_URL}/> Trending</li></Link>
 
+        <Link to={'watchLater'}>
         <li className='flex flex-col items-center px-1 font-bold text-xs my-1'>
-          <img className='h-8 hover:bg-gray-400 p-1 rounded-full ' alt='subscription icon' src={WATCHLATER_ICON_URL}/>Watch later</li>
-
+          <img className='h-8 hover:bg-gray-400 p-1 rounded-full ' alt='subscription icon' src={WATCHLATER_ICON_URL}/>Watch later<span className='absolute -top-1 right-20 px-2 py-1 w-fit h-fit text-sm text-white bg-red-500 rounded-full'>{watchLaterCount.length}</span>
+          </li>
+          </Link>
       <li className='flex flex-col items-center px-1 font-bold text-xs my-1'>
     <img className='h-8 hover:bg-gray-400 p-1 rounded-full' alt='user logo' src='https://cdn-icons-png.flaticon.com/512/552/552721.png'/>You</li>
     </ul>

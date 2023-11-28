@@ -7,6 +7,7 @@ import watchPageSlice from "./watchPageSlice";
 import searchQuerrySlice from "./searchQuerrySlice";
 import chatSlice from "./chatSlice";
 import homeSlice from "./homeSlice";
+import watchLaterSlice from "./watchLaterSlice";
 
 const store= configureStore({
     reducer:{
@@ -18,6 +19,7 @@ const store= configureStore({
         searchQuerry: searchQuerrySlice,
         chat:chatSlice,
         home: homeSlice,
+        watchLater: watchLaterSlice
     },
 })
 

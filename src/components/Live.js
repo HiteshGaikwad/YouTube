@@ -44,7 +44,7 @@ const Live=()=>{
     },[minute])
 
     return (
-        <div className='my-3 m-2 sm:mx-20 w-[96%] flex flex-col sm:w-[92vw] h-full sm:h-[89vh] overflow-x-hidden sm:grid grid-flow-col gap-5 sm:absolute sm:left-5 overflow-auto'>  
+        <div className='my-3 m-2 pb-14 sm:mx-20 w-[96%] flex flex-col sm:w-[92vw] h-full sm:h-[89vh] overflow-x-hidden sm:grid grid-flow-col gap-5 sm:absolute sm:left-5 overflow-auto'>  
      <div className='sm:w-[900px] w-full'>
     <div className='flex flex-col gap-3 '>
     <iframe className='sm:rounded-xl rounded-md w-full sm:w-[950px] sm:h-[550px] h-60' src={"https://www.youtube.com/embed/AQBefatKs10?autoplay=1"} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>

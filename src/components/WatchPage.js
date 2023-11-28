@@ -6,6 +6,7 @@ import { YOUTUBE_CHANNEL_LOGO_URL, YOUTUBE_COMMENTS_API } from '../utils/constan
 import SuggestionVideos from './SuggestionVideos';
 import {getNumber,getMonth} from "../utils/helper";
 import Comment from './Comment';
+import { addVideos } from '../utils/watchLaterSlice';
 
 export default function WatchPage() {
 
@@ -18,6 +19,8 @@ export default function WatchPage() {
   const [isDescriptionOpen, setIsDescriptionOpen]= useState(false);
   const [allComments, setAllComments]=useState([]);
   const [isCommentsOpen,setIsCommentsOpen]=useState(false);
+  const [isOptionsOpen, setIsOptionsOpen]= useState(false);
+
 
   const views= getNumber(videoInfo?.statistics?.viewCount);
   const subscribers= getNumber(channelInfo?.statistics?.subscriberCount);
@@ -62,7 +65,7 @@ export default function WatchPage() {
     <div className='sm:my-3 max-sm:m-2 sm:mr-1 sm:ml-20 w-[96%] sm:w-[92vw] h-screen overflow-x-hidden sm:grid grid-flow-col max-sm:flex flex-col  sm:gap-4 sm:absolute sm:left-8 overflow-auto'>  
     <div className=' '>
 
-      {/* video frame and info */}
+      {/* video iframe and info */}
     <div className='flex  flex-col gap-3 '>
       {/* for small devices */}
     <iframe className=' rounded-md w-full sm:w-[950px] sm:h-[550px] h-60 ' src={"https://www.youtube.com/embed/"+videoId.get("v")+"?autoplay=1"} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
@@ -74,7 +77,7 @@ export default function WatchPage() {
 
         {/* channel details */}
         <div className='flex items-center max-sm:justify-between gap-4'>
-        <img className='border border-black sm:w-12 w-8 rounded-full' src={channelInfo?.snippet?.thumbnails?.medium?.url===undefined?"https://cdn-icons-png.flaticon.com/512/552/552721.png":channelInfo?.snippet?.thumbnails?.medium?.url} alt='channel logo'></img>
+        <img className='border border-black sm:w-12 w-8 rounded-full' src={channelInfo?.snippet?.thumbnails?.high?.url===undefined?"https://cdn-icons-png.flaticon.com/512/552/552721.png":channelInfo?.snippet?.thumbnails?.high?.url} alt='channel logo'></img>
         
         <div className='flex sm:flex-col max-sm:gap-2 items-center'>
           <h2 className='sm:text-lg text-sm font-bold'>{videoInfo?.snippet?.channelTitle===undefined?"Channel Name":videoInfo?.snippet?.channelTitle}</h2>
@@ -96,7 +99,18 @@ export default function WatchPage() {
 
         <button className='hover:bg-slate-300 shadow-sm shadow-gray-600 flex items-center gap-1 sm:gap-2 text-xs sm:text-md font-bold h-8 sm:h-10 px-2 w-fit rounded-full'><img className='sm:w-5 w-3 h-3 sm:h-5 mix-blend-darken' alt='downloads icon' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFGYn5CXRz5AUcZXQUTMpWnRnGmW5egqz9rlJoHyvb6lAC1Zw0bU7gKDJOfXVZ0Kv9P08&usqp=CAU'/> Download</button>
 
-        <button className='hover:bg-slate-300 shadow-sm shadow-gray-600 h-9 px-1 w-fit rounded-full'><img className='w-6 h-6' alt='menu icon' src='https://static.thenounproject.com/png/384290-200.png'/></button>
+        
+        <div onClick={()=> setIsOptionsOpen(!isOptionsOpen)} className='relative'>
+        <button className='hover:bg-slate-300 shadow-sm shadow-gray-600 h-9 px-1 w-fit rounded-full'>
+          <img className='w-6 h-6' alt='menu icon' src='https://static.thenounproject.com/png/384290-200.png'/></button>
+           {isOptionsOpen && <div className='absolute top-11 right-0 sm:w-60 w-44 h-28 sm:h-40 sm:p-2 p-1 bg-slate-300 shadow-md  shadow-gray-500 rounded-xl'> <span className='absolute -top-2 right-2 w-5 h-5 bg-slate-300 rotate-45 '></span>
+              <ul className='sm:text-lg text-sm font-bold flex flex-col gap-1'>
+                <li onClick={()=>dispatch(addVideos(videoInfo))} className='w-fit flex gap-2 hover:bg-slate-400 rounded-full sm:px-2 py-1'>
+                    <img className='sm:w-6 w-5' alt='watch later icon' src='https://static.thenounproject.com/png/4970870-200.png'/>
+                    Save to watch later</li>
+              </ul>
+            </div>}
+            </div>
         </div>
       </div>
     </div>
