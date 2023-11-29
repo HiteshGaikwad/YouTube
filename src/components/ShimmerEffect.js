@@ -3,7 +3,7 @@ import React from 'react'
 
 const ShimmerEffect = () => {
   return (
-    <div className='mx-4 sm:w-[85vw] max-sm:flex flex-col max-sm:gap-5 sm:fixed left-44 sm:grid pt-1 sm:grid-cols-4 gap-3 h-[80vh] overflow-y-auto '>
+    <div className='sm:mx-4  sm:w-[85vw] w-[95vw] max-sm:flex flex-col max-sm:gap-5 sm:fixed left-44 sm:grid pt-1 sm:grid-cols-4 gap-3 h-[80vh] overflow-y-auto '>
         {
     Array(16)
         .fill("")

@@ -91,9 +91,9 @@ const getSearchSuggestions= async ()=>{
          {/* search input button */}
       <div className=' sm:col-span-10  justify-center flex items-center relative'>
 
-        <input value={searchQuerry} onChange={(e)=>setSearchQuerry(e.target.value)} onFocus={()=>setIsSuggestionsOpen(true)} className='w-2/4 max-sm:w-full max-sm:h-8 px-2 sm:px-4 py-2 max-sm:text-xs max-sm:font-bold font-semibold max-sm:placeholder:text-sm border border-black outline-blue-500 rounded-l-full' placeholder='Search'/> { searchQuerry!==""? <button onClick={()=>setSearchQuerry("")} className='absolute sm:right-80 right-10 sm:bg-slate-400 sm:p-1 rounded-full max-sm:text-[10px]'>❌</button>:""}
+        <input value={searchQuerry} onChange={(e)=>setSearchQuerry(e.target.value)} onFocus={()=>setIsSuggestionsOpen(true)} className='w-2/4 max-sm:w-full max-sm:h-8 px-2 sm:px-4 py-2 max-sm:text-xs max-sm:font-bold font-semibold max-sm:placeholder:text-sm border border-black outline-blue-500 rounded-l-full' placeholder='Search'/> { searchQuerry!==""? <button onClick={()=>setSearchQuerry("")} className='absolute sm:right-80 right-12 sm:bg-slate-400 sm:p-1 rounded-full max-sm:text-[10px]'>❌</button>:""}
 
-        <button onClick={()=>{getFilterVideos(searchQuerry);setIsSuggestionsOpen(false)}} className='w-12 max-sm:h-8 max-sm:w-8 py-2 px-3 max-sm:px-2 max-sm:py-2 rounded-r-full border border-gray-500 bg-gray-200'><img className='h-6 max-sm:h-4 max-sm:w-4' alt='search icon' src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png'/></button>
+        <button onClick={()=>{getFilterVideos(searchQuerry);setIsSuggestionsOpen(false)}} className='w-12 max-sm:h-8 py-2 px-3 max-sm:px-2 max-sm:py-2 rounded-r-full border border-gray-500 bg-gray-200'><img className='h-6 max-sm:h-4 max-sm:w-4' alt='search icon' src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1024px-Search_Icon.svg.png'/></button>
 
         {
           isSuggesionsOpen && <div className='bg-white w-full sm:w-2/4  rounded-xl shadow-lg shadow-gray-600 px-5 mx-1 absolute sm:left-64 top-8 sm:top-11'>

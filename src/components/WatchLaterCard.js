@@ -15,7 +15,7 @@ const WatchLaterCard = ({video}) => {
     <div className='flex max-sm:pb-1 max-sm:my-2 gap-1 shadow-lg shadow-gray-300 rounded-xl'>
       <Link className="hover:bg-gradient-to-r from-slate-300 w-11/12 sm:w-10/12" key={video?.etag} onClick={()=>dispatch(addInfo(video))} to={"/watch?v="+video?.id?.videoId}>
       <div className=' w-full flex'>
-            <img className='sm:w-80 w-40 h-28 sm:h-48 rounded-xl' alt='thumbnail' src={video?.snippet?.thumbnails?.high?.url}/>
+            <img className='sm:w-80 w-40 h-28 sm:h-48 rounded-xl' alt='thumbnail' src={video?.snippet?.thumbnails?.medium?.url}/>
            
              <div className='flex flex-col overflow-hidden w-full line-clamp-2 gap-2 m-1'>
             <h1 className='sm:text-xl text-md font-semibold sm:font-bold max-sm:overflow-hidden max-sm:w-full max-sm:line-clamp-2 '>{video?.snippet?.title===undefined?"Video title":video?.snippet?.title}</h1>

@@ -35,7 +35,7 @@ const searchedVideos= useSelector((store)=>store.videos);
   }
 
   return (
-    <div className='ml-3 mr-2 max-sm:mt-5 sm:my-12 pt-2 sm:pt-4 sm:grid grid-cols-4 gap-3 h-[80vh] overflow-x-hidden overflow-y-scroll'>
+    <div className='ml-3 mr-2 max-sm:mt-5 sm:my-12 pt-2 sm:pt-4 sm:grid grid-cols-4 gap-3  h-[80vh] overflow-x-hidden overflow-y-scroll'>
       {
 
         //searchedVideos not undefined and homeOpen is false thne display searchedVideos else display mostPopularVideos on home page

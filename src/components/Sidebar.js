@@ -126,7 +126,7 @@ const handleCategory= async(querry)=>{
     <li className={'flex flex-col items-center px-1 font-bold text-xs my-1'}>
       <img className={' h-8 hover:bg-gray-400 p-1 rounded-full  '+ (isLive && "bg-gray-400")} alt='home icon' src={LIVE_ICON_URL}/>Live</li></Link>
 
-      <Link to="/" onClick={(()=>handleCategory("trending"))}>
+      <Link to="/" onClick={(()=>handleCategory("trend"))}>
         <li className={'flex flex-col items-center px-1 font-bold text-xs my-1 '}>
         <img className={'h-8 hover:bg-gray-400 p-1 rounded-full '+ (selectedCategory==='trending' && "bg-gray-400")} alt='home icon' src={TRENDING_ICON_URL}/> Trending</li></Link>
 

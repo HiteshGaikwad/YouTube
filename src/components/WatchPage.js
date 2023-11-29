@@ -67,7 +67,7 @@ export default function WatchPage() {
 
       {/* video iframe and info */}
     <div className='flex  flex-col gap-3 '>
-      {/* for small devices */}
+      
     <iframe className=' rounded-md w-full sm:w-[950px] sm:h-[550px] h-60 ' src={"https://www.youtube.com/embed/"+videoId.get("v")+"?autoplay=1"} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
     {/* video info and buttons*/}
@@ -77,7 +77,7 @@ export default function WatchPage() {
 
         {/* channel details */}
         <div className='flex items-center max-sm:justify-between gap-4'>
-        <img className='border border-black sm:w-12 w-8 rounded-full' src={channelInfo?.snippet?.thumbnails?.high?.url===undefined?"https://cdn-icons-png.flaticon.com/512/552/552721.png":channelInfo?.snippet?.thumbnails?.high?.url} alt='channel logo'></img>
+        <img className='border border-black sm:w-12 w-8 rounded-full' src={channelInfo?.snippet?.thumbnails?.medium?.url===undefined?"https://cdn-icons-png.flaticon.com/512/552/552721.png":channelInfo?.snippet?.thumbnails?.medium?.url} alt='channel logo'></img>
         
         <div className='flex sm:flex-col max-sm:gap-2 items-center'>
           <h2 className='sm:text-lg text-sm font-bold'>{videoInfo?.snippet?.channelTitle===undefined?"Channel Name":videoInfo?.snippet?.channelTitle}</h2>
