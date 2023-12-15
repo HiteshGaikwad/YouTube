@@ -1,4 +1,4 @@
-YouTube Application (React | JavaScript | Tailwind | Redux)
+# YouTube Application (React | JavaScript | Tailwind | Redux)
 
 Developed a feature-rich YouTube application using modern front-end technologies. Leveraged React, Tailwind CSS, and Redux to create a responsive and visually appealing user interface. The project highlights the following key features:
 
